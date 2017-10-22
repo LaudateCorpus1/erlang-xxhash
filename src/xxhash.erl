@@ -20,7 +20,7 @@
 -define(nif_stub, nif_stub_error(?LINE)).
 
 -type hash_input() :: binary() | atom() | number() | list().
--type hash_handle() :: binary().
+-type hash_handle() :: reference().
 -type hash_digest() :: non_neg_integer().
 -type hash_seed() :: non_neg_integer().
 
@@ -123,7 +123,7 @@ hash32_init(Seed) when is_integer(Seed) ->
 
 -spec hash32_update(Handle::hash_handle(), Data::hash_input()) -> ok.
 
-hash32_update(Handle, Data) when is_binary(Handle) ->
+hash32_update(Handle, Data) when is_reference(Handle) ->
   hash32_update_impl(Handle, supported_to_binary(Data)).
 
 
@@ -131,7 +131,7 @@ hash32_update(Handle, Data) when is_binary(Handle) ->
 
 -spec hash32_digest(Handle::hash_handle()) -> hash_digest().
 
-hash32_digest(Handle) when is_binary(Handle) ->
+hash32_digest(Handle) when is_reference(Handle) ->
   hash32_digest_impl(Handle).
 
 
@@ -176,7 +176,7 @@ hash64_init(Seed) when is_integer(Seed) ->
 
 -spec hash64_update(Handle::hash_handle(), Data::hash_input()) -> ok.
 
-hash64_update(Handle, Data) when is_binary(Handle) ->
+hash64_update(Handle, Data) when is_reference(Handle) ->
   hash64_update_impl(Handle, supported_to_binary(Data)).
 
 
@@ -184,7 +184,7 @@ hash64_update(Handle, Data) when is_binary(Handle) ->
 
 -spec hash64_digest(Handle::hash_handle()) -> hash_digest().
 
-hash64_digest(Handle) when is_binary(Handle) ->
+hash64_digest(Handle) when is_reference(Handle) ->
   hash64_digest_impl(Handle).
 
 
