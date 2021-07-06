@@ -1,9 +1,7 @@
+doc/
+_build/
 *.o
-.ebin
-*.beam
 .DS*
 .eunit
-ebin
 *.so
-.rebar
 *.d

@@ -1,12 +1,10 @@
-{application, xxhash,
-  [
-    {description, "xxHash for Erlang."},
-    {vsn, "0.2.0"},
-    {registered, []},
-    {applications, [kernel, stdlib]},
-    {modules, []},
-    {pkg_name, "erl_xxhash"},
-    {licenses, ["BSD"]},
-    {links, [{"Github", "https://github.com/Merff/erlang-xxhash"}]}
-  ]
-}.
+{application,
+ xxhash,
+ [{description, "xxHash for Erlang."},
+  {vsn, "0.2.0"},
+  {registered, []},
+  {applications, [kernel, stdlib]},
+  {modules, []},
+  {pkg_name, "erl_xxhash"},
+  {licenses, ["BSD"]},
+  {links, [{"Github", "https://github.com/Merff/erlang-xxhash"}]}]}.
