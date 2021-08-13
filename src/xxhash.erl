@@ -15,7 +15,7 @@
 
 -on_load init/0.
 
--type hash_input() :: binary() | atom() | number() | list().
+-type hash_input() :: binary() | atom() | number().
 -type hash_handle() :: reference().
 -type hash_digest() :: non_neg_integer().
 -type hash_seed() :: non_neg_integer().
@@ -27,7 +27,8 @@ nif_stub_error(Line) ->
 %%% Initializer
 %%%=============================================================================
 
--spec init() -> ok | {error, any()}.
+-spec init() ->
+              ok | {error, {bad_lib | load | load_failed | old_code | reload | upgrade, string()}}.
 init() ->
     PrivDir =
         case code:priv_dir(?MODULE) of
